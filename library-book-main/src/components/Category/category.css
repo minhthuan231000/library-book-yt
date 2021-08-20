@@ -1,0 +1,83 @@
+.category {
+    background-color: var(--color-heading);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10%;
+}
+
+.category .category_title {
+    padding: 0 68px;
+    color: var(--text-mode);
+    align-self: center;
+    font-weight: 800;
+}
+
+.category .category_content {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+}
+
+.category .category__item {
+    text-align: center;
+    color: var(--text-mode);
+    min-width: 88px;
+    font-weight: 500;
+    line-height: 48px;
+    border-left: 4px solid green;
+    border-right: 4px solid green;
+    padding: 0 8px;
+    transition: padding 0.3s ease;
+}
+
+.category .category__item:hover {
+    color: green;
+    cursor: pointer;
+    padding: 0 12px;
+}
+
+/* Iphone 6/7/8 Plus to Ipad */
+
+@media (min-width: 414px) and (max-width: 739px) {
+    .category .category_content {
+        height: calc(var(--height-heading));
+        flex-direction: column;
+        justify-content: space-between;
+        max-height: 100%;
+        overflow-y: auto;
+    }
+    .category .category__item:hover {
+        color: green;
+        cursor: pointer;
+    }
+}
+
+/* Iphone X to Ipad */
+
+@media (min-width: 375px) and (max-width: 739px) {
+    .category {
+        padding: 0;
+    }
+    .category .category_title {
+        padding: 0 28px;
+    }
+    .category .category_content {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+    .category .category_content::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* Ipad to Ipad Pro */
+
+@media (min-width: 740px) and (max-width: 1239px) {
+    .category {
+        padding: 0 48px;
+    }
+    .category .category_content {
+        max-width: 100%;
+        overflow-x: auto;
+    }
+}
