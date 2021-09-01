@@ -45,7 +45,7 @@ export default function Chat() {
                     <input value={addChat} required={true} onChange={(e) => handleChangeChat(e)} />
                 </div>
                 <div>
-                    <button type="button" onClick={AddChat()}>Thêm bình luận</button>
+                    <button type="button" onClick={AddChat()}>Thêm bình luận mới</button>
                 </div>
             </form>
         </div>
