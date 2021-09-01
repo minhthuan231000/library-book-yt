@@ -1,0 +1,64 @@
+.slidebar {
+    color: var(--text-mode);
+    display: flex;
+    flex-direction: column;
+    margin: 28px 0;
+    padding: 0 30px;
+    width: 100%;
+}
+
+.slidebar__title {
+    text-transform: uppercase;
+    padding: 12px 30px;
+    display: flex;
+}
+
+.slidebar__content {
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+}
+
+.slidebar__content--item {
+    flex: 1;
+    padding: 8px 12px;
+    display: flex;
+    border: 1px solid #1F1F1F;
+}
+
+.slidebar__content--item .slidebar__content--card {
+    padding: 8px 8px;
+    height: auto;
+    width: 20%;
+}
+
+.slidebar__content--item .slidebar__content--card>img {
+    height: 100%;
+    width: 100%;
+}
+
+.slidebar__content--item:nth-child(2n+1) {
+    background-color: #1F1F1F;
+    background-clip: content-box;
+}
+
+.slidebar__content--text {
+    flex: 1;
+    margin: 8px 2px;
+}
+
+/* Iphone 6/7/8 Plus to Ipad */
+
+@media (min-width: 414px) and (max-width: 739px) {
+    .slidebar{
+        padding: 0;
+    }
+}
+
+/* Iphone X to Ipad */
+
+@media (min-width: 375px) and (max-width: 739px) {
+    .slidebar{
+        padding: 0;
+    }
+}
