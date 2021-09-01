@@ -3,6 +3,9 @@ import './heading.css'
 import Logo from '../../assets/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
+import {
+    Link
+} from "react-router-dom";
 export default function Heading() {
     const [isOpen, setIsOpen] = React.useState(false);
     const toggle = () => setIsOpen(!isOpen);
@@ -10,11 +13,11 @@ export default function Heading() {
         if (isOpen) {
             return (
                 <div className="heading_nav--menu-content">
-                    <a className="heading__nav--item" href="#Home">Trang chủ</a>
-                    <a className="heading__nav--item" href="#Review">Nhận Xét</a>
-                    <a className="heading__nav--item" href="#Blog">Cá Nhân</a>
-                    <a className="heading__nav--item" href="#About">Thông Tin</a>
-                    <a className="heading__nav--item" href="#Contact">Liên Hệ</a>
+                    <a className="heading__nav--item" href="/">Trang chủ</a>
+                    <a className="heading__nav--item" href="/Review">Nhận Xét</a>
+                    <a className="heading__nav--item" href="/Blog">Cá Nhân</a>
+                    <a className="heading__nav--item" href="/About">Thông Tin</a>
+                    <a className="heading__nav--item" href="/Contact">Liên Hệ</a>
                 </div>
             );
         }
@@ -30,15 +33,15 @@ export default function Heading() {
             </div>
             <div className="heading__nav">
                 <div className="heading__nav--menu-pc">
-                    <a className="heading__nav--item" href="#Home">Trang chủ</a>
-                    <a className="heading__nav--item" href="#Review">Nhận Xét</a>
-                    <a className="heading__nav--item" href="#Blog">Cá Nhân</a>
-                    <a className="heading__nav--item" href="#About">Thông Tin</a>
-                    <a className="heading__nav--item" href="#Contact">Liên Hệ</a>
+                    <a className="heading__nav--item" href="/">Trang chủ</a>
+                    <a className="heading__nav--item" href="/Review">Nhận Xét</a>
+                    <a className="heading__nav--item" href="/Blog">Cá Nhân</a>
+                    <a className="heading__nav--item" href="/About">Thông Tin</a>
+                    <a className="heading__nav--item" href="/Contact">Liên Hệ</a>
                     <div className="heading__search">
                         <div className="heading__search--input">
                             <input type="text" placeholder="Tên sách bạn muốn tìm?..." />
-                            <span class="material-icons heading__search--icon" >
+                            <span className="material-icons heading__search--icon" >
                                 search
                             </span>
                         </div>

@@ -13,7 +13,7 @@ import icon_elo from '../../assets/icons/elo.png'
 function emotions(number) {
     const temp = []
     for (let i = 0; i < number; i++) {
-        temp[i] = <span class="material-icons red">
+        temp[i] = <span key={i} className="material-icons red">
             favorite
         </span>
     }

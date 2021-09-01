@@ -1,7 +1,5 @@
 import './detailProduct.css'
 import { useParams } from "react-router-dom";
-import Category from './../Category/Category';
-import Banner from '../Banner/Banner';
 import Slidebar from '../Slidebar/slidebar';
 import Books from '../DataBooks'
 import Chat from '../Chats/Chat.js';
@@ -10,6 +8,7 @@ const updated = new Date().toLocaleDateString();
 export default function DetailProduct() {
     let { params } = useParams();
     // Show name book
+    const ImageBook = (params) => Books[0].items[params - 1].item_img;
     const NameBook = (params) => Books[0].items[params - 1].item_name;
     const AuthorBook = (params) => Books[0].items[params - 1].item_author;
     const TypeBook = (params) => Books[0].items[params - 1].item_type;
@@ -43,8 +42,6 @@ export default function DetailProduct() {
     const rate = parts.join(".");
     return (
         <div>
-            <Banner />
-            <Category />
             <div id="content__page">
                 <div className="book__wrap">
                     <div className="book__title">
@@ -53,16 +50,16 @@ export default function DetailProduct() {
                     </div>
                     <div className="book__detail">
                         <div className="book__detail--card">
-                            <img src={Books[0].items[params - 1].item_img} alt="item" />
+                            <img src={ImageBook(params)} alt="item" />
                         </div>
                         <div className="book__info">
                             <div className="book__info--author">
                                 <span className="material-icons">person</span>
-                                <span className="book__info--text">Tác giả - {AuthorBook(params)}</span>
+                                <span className="book__info--text">Tác giả -  {AuthorBook(params)}</span>
                             </div>
                             <div className="book__info--category">
                                 <span className="material-icons">local_offer</span>
-                                <span className="book__info--text">Thể loại - {TypeBook(params)}</span>
+                                <span className="book__info--text">Thể loại -  {TypeBook(params)}</span>
                             </div>
                             <div className="book__info--view">
                                 <span className="material-icons">visibility</span>
@@ -91,7 +88,7 @@ export default function DetailProduct() {
                             <span>Nội dung:</span>
                         </div>
                         <div className="book__review--content">
-                            <p>{ContentBook(params)}</p>
+                            <p> {ContentBook(params)}</p>
                         </div>
                     </div>
                     <div className="book__comments">

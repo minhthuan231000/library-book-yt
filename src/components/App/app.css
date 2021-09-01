@@ -2,7 +2,7 @@
     background-color: var(--mode-dark);
 }
 
-#content__page {
+#products__page {
     width: auto;
     max-width: var(--width-body);
     margin: 0 auto;
@@ -14,7 +14,7 @@
 /* Iphone 6/7/8 Plus to Ipad */
 
 @media (min-width: 414px) and (max-width: 739px) {
-    #content__page {
+    #products__page {
         max-width: calc(var(--width-body)90%);
         flex-direction: column;
     }
@@ -23,7 +23,7 @@
 /* Iphone X to Ipad */
 
 @media (min-width: 375px) and (max-width: 739px) {
-    #content__page {
+    #products__page {
         max-width: calc(var(--width-body)90%);
         flex-direction: column;
     }
@@ -32,7 +32,7 @@
 /* Ipad to Ipad Pro */
 
 @media (min-width: 740px) and (max-width: 1239px) {
-    #content__page {
+    #products__page {
         max-width: calc(var(--width-body)90%);
     }
 }

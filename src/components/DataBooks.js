@@ -65,6 +65,15 @@ const DataBooks = [
                 "item_author": "Lam Anh",
                 "item_type": "Văn học Việt Nam"
             },
+            {
+                "item_id": 3,
+                "item_name": "khoảnh tối paris",
+                "item_content": "Một kẻ sát nhân hàng loạt với thủ đoạn tàn ác mà Paris chưa từng biết đến trong suốt một thời gian dài...\nMột Philippe Valmy - được người ta ngó nhiều nhất ở Sở Cảnh sát Paris vào lúc ấy vì đang nắm giữ một trong những cuộc điều tra lớn nhất trong những năm gần đây...\nBan giám khảo Quai des Orfevres 2020 có lý do để trao giải cho cuốn tiểu thuyết trinh thám này, không chỉ bởi sự thể hiện xuất sắc những đặc trưng của thể loại với nhân vật chính là thám tử cảnh sát, mà có lẽ còn do cách xây dựng hình ảnh nghệ thuật khúc chiết, khéo léo quyến rũ tâm trí người đọc theo từng trang sách.",
+                "item_img": "/assets/item4.jpg",
+                "item_author": "Alexandre Galien",
+                "item_type": "Văn học Nước Ngoài"
+            }
+            
         ]
     },
     {
@@ -94,6 +103,22 @@ const DataBooks = [
                 "item_img": "/assets/item3.jpg",
                 "item_author": "Lam Anh",
                 "item_type": "Văn học Việt Nam"
+            },
+            {
+                "item_id": 3,
+                "item_name": "khoảnh tối paris",
+                "item_content": "Một kẻ sát nhân hàng loạt với thủ đoạn tàn ác mà Paris chưa từng biết đến trong suốt một thời gian dài...\nMột Philippe Valmy - được người ta ngó nhiều nhất ở Sở Cảnh sát Paris vào lúc ấy vì đang nắm giữ một trong những cuộc điều tra lớn nhất trong những năm gần đây...\nBan giám khảo Quai des Orfevres 2020 có lý do để trao giải cho cuốn tiểu thuyết trinh thám này, không chỉ bởi sự thể hiện xuất sắc những đặc trưng của thể loại với nhân vật chính là thám tử cảnh sát, mà có lẽ còn do cách xây dựng hình ảnh nghệ thuật khúc chiết, khéo léo quyến rũ tâm trí người đọc theo từng trang sách.",
+                "item_img": "/assets/item4.jpg",
+                "item_author": "Alexandre Galien",
+                "item_type": "Văn học Nước Ngoài"
+            },
+            {
+                "item_id": 4,
+                "item_name": "khoảnh tối paris",
+                "item_content": "Một kẻ sát nhân hàng loạt với thủ đoạn tàn ác mà Paris chưa từng biết đến trong suốt một thời gian dài...\nMột Philippe Valmy - được người ta ngó nhiều nhất ở Sở Cảnh sát Paris vào lúc ấy vì đang nắm giữ một trong những cuộc điều tra lớn nhất trong những năm gần đây...\nBan giám khảo Quai des Orfevres 2020 có lý do để trao giải cho cuốn tiểu thuyết trinh thám này, không chỉ bởi sự thể hiện xuất sắc những đặc trưng của thể loại với nhân vật chính là thám tử cảnh sát, mà có lẽ còn do cách xây dựng hình ảnh nghệ thuật khúc chiết, khéo léo quyến rũ tâm trí người đọc theo từng trang sách.",
+                "item_img": "/assets/item4.jpg",
+                "item_author": "Alexandre Galien",
+                "item_type": "Văn học Nước Ngoài"
             }
         ]
     },
