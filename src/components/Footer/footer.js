@@ -30,7 +30,7 @@ function CommentItem(props) {
 }
 export default function Footer() {
     return (
-        <div style={{ backgroundColor: '#333' }}>
+        <div className="footer__wrap">
             <div className="footer">
                 <div className="footer__left">
                     <div className="footer__item">

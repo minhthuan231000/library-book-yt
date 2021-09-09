@@ -6,7 +6,11 @@ p {
 ul, li {
     list-style: none;
 }
-
+.footer__wrap{
+    position: relative;
+    display: block;
+    background-color: #333;
+}
 .footer {
     height: auto;
     width: auto;

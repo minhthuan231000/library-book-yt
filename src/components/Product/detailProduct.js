@@ -3,16 +3,28 @@ import { useParams } from "react-router-dom";
 import Slidebar from '../Slidebar/slidebar';
 import Books from '../DataBooks'
 import Chat from '../Chats/Chat.js';
+
+import { useEffect } from 'react'
 const updated = new Date().toLocaleDateString();
 
 export default function DetailProduct() {
-    let { params } = useParams();
+    let { type } = useParams();
+    let { id } = useParams();
     // Show name book
-    const ImageBook = (params) => Books[0].items[params - 1].item_img;
-    const NameBook = (params) => Books[0].items[params - 1].item_name;
-    const AuthorBook = (params) => Books[0].items[params - 1].item_author;
-    const TypeBook = (params) => Books[0].items[params - 1].item_type;
-    const ContentBook = (params) => Books[0].items[params - 1].item_content;
+    const ImageBook = (id) => Books[type].items[id].item_img;
+    const NameBook = (id) => Books[type].items[id].item_name;
+    const AuthorBook = (id) => Books[type].items[id].item_author;
+    const TypeBook = (id) => Books[type].items[id].item_type;
+    const ContentBook = (id) => Books[type].items[id].item_content;
+    const startScroll = () => {
+        window.scrollTo({
+            top: 855, // Srcll to view Detail Product
+            behavior: "smooth"
+        });
+    }
+    useEffect(() => {
+        startScroll()
+    }, [])
     // Show rate book   
     const rankStar = (rate) => {
         var Rank = [];
@@ -40,26 +52,27 @@ export default function DetailProduct() {
     const view = parts.join(".");
     parts = temp2.match(/.{1,3}/g);
     const rate = parts.join(".");
+    
     return (
         <div>
-            <div id="content__page">
+            <div id="products__page">
                 <div className="book__wrap">
                     <div className="book__title">
-                        <h2 className="book__title--name">Tên sách: {NameBook(params)}</h2>
+                        <h2 className="book__title--name">Tên sách: {NameBook(id)}</h2>
                         <em className="book__title--updated">Cập nhật lúc {updated}</em>
                     </div>
                     <div className="book__detail">
                         <div className="book__detail--card">
-                            <img src={ImageBook(params)} alt="item" />
+                            <img src={ImageBook(id)} alt="item" />
                         </div>
                         <div className="book__info">
                             <div className="book__info--author">
                                 <span className="material-icons">person</span>
-                                <span className="book__info--text">Tác giả -  {AuthorBook(params)}</span>
+                                <span className="book__info--text">Tác giả -  {AuthorBook(id)}</span>
                             </div>
                             <div className="book__info--category">
                                 <span className="material-icons">local_offer</span>
-                                <span className="book__info--text">Thể loại -  {TypeBook(params)}</span>
+                                <span className="book__info--text">Thể loại -  {TypeBook(id)}</span>
                             </div>
                             <div className="book__info--view">
                                 <span className="material-icons">visibility</span>
@@ -75,8 +88,8 @@ export default function DetailProduct() {
                                 </div>
                             </div>
                             <div className="book__info--read">
-                                <button type="button">Đọc từ đầu</button>
-                                <button type="button">Đọc phần đã lưu</button>
+                                <button type="button" className="btn-primary">Đọc từ đầu</button>
+                                <button type="button" className="btn-primary">Đọc phần đã lưu</button>
                             </div>
                         </div>
                     </div>
@@ -88,12 +101,14 @@ export default function DetailProduct() {
                             <span>Nội dung:</span>
                         </div>
                         <div className="book__review--content">
-                            <p> {ContentBook(params)}</p>
+                            <p> {ContentBook(id)}</p>
+
                         </div>
                     </div>
                     <div className="book__comments">
                         <Chat />
                     </div>
+
                 </div>
                 <Slidebar />
             </div>

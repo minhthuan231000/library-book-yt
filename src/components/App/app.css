@@ -10,7 +10,17 @@
     display: flex;
     flex-direction: row;
 }
-
+#reg__page{
+    display: block;
+    padding-top: calc(var(--height-heading) * 4);
+    padding-bottom: calc(var(--height-heading) * 2);
+}
+#log__page{
+    padding: calc(var(--height-heading) * 4);
+}
+#inf__page{
+    padding: calc(var(--height-heading) * 4) calc(var(--height-heading) / 2);
+}
 /* Iphone 6/7/8 Plus to Ipad */
 
 @media (min-width: 414px) and (max-width: 739px) {

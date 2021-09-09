@@ -11,35 +11,71 @@ import {
   Route,
 } from "react-router-dom";
 import DetailProduct from "../Product/detailProduct";
+import Register from "../Register/Register";
+import Login from "../Login/Login";
+import User from './../User/User';
 function HomePage() {
   return (
     <div id="products__page">
-      <div className="content">
+      <div className="contentt">
         <Product title="Cập nhật mới" id={0} />
         <Product title="Đề xuất" id={1} />
         <Product title="Văn học" id={2} />
         <Product title="Nội dung chọn lọc" id={3} />
+        <Product title="Tất cả" />
       </div>
+    </div>
+  )
+}
+function RegisterPage() {
+  return (
+    <div id="reg__page">
+      <Register />
+    </div>
+  )
+}
+function LoginPage() {
+  return (
+    <div id="reg__page">
+      <Login />
+    </div>
+  )
+}
+function InfoPage() {
+  return (
+    <div id="inf__page">
+      <User />
     </div>
   )
 }
 function App() {
   return (
     <div id="main">
-      <Heading />
-      <Banner />
-      <Category />
       <Router>
+        <Heading />
         <Switch>
           <Route exact path="/">
+            <Banner />
+            <Category />
             <HomePage />
           </Route>
-          <Route path="/detail/:params">
+          <Route path="/detail/:type/:id">
+            <Banner />
+            <Category />
             <DetailProduct />
           </Route>
+          <Route path="/user/register">
+            <RegisterPage />
+          </Route>
+          <Route path="/user/login">
+            <LoginPage />
+          </Route>
+          <Route path="/user/info">
+            <InfoPage />
+          </Route>
         </Switch>
+        <Footer />
       </Router>
-      <Footer />
     </div>
   );
 }

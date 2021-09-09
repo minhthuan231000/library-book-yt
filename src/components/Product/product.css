@@ -1,6 +1,7 @@
 .products {
     color: var(--text-mode);
     background: linear-gradient(0, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, .5));
+    width: auto;
     height: auto;
     padding: 0 30px;
     margin: 28px 0;
@@ -31,55 +32,116 @@
 
 .products .product__content {
     flex: 1;
+    width: calc(var(--width-body) - 60px);
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    overflow-wrap: break-word;
 }
-
 .products .product__content .product__item {
     flex: 1;
-    padding: 4px 2px;
+    width: 300px;
+    height: 550px;
+    padding: 4px 16px;
     margin: 4px 4px;
-    height: 500px;
     background-color: #333;
     display: flex;
-    border: 1px solid #333;
     flex-direction: column;
 }
 
-.product__item>.item__card {
-    height: 90%;
-    position: relative;
+/* Start Effect 3D Book */
+
+.product__item--book {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform .5s;
+    -moz-transition: -moz-transform .5s;
+    transition: transform .5s;
 }
 
+.product__item--book:hover {
+    -webkit-transform: rotate3d(0, 1, 0, 35deg);
+    -moz-transform: rotate3d(0, 1, 0, 35deg);
+    transform: rotate3d(0, 1, 0, 35deg);
+}
 
-.product__item>.item__card>img {
+.product__item--book>div, .product__item--front>div {
+    display: block;
+    position: absolute;
+}
+
+.product__item--front {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-transform-origin: 0% 50%;
+    -moz-transform-origin: 0% 50%;
+    transform-origin: 0% 50%;
+    -webkit-transition: -webkit-transform .5s;
+    -moz-transition: -moz-transform .5s;
+    transition: transform .5s;
+    transform: translate3d(0, 0, 20px);
+}
+
+.product__item--front>.product__item--cover {
+    width: 100%;
+    height: 100%;
+    border: 2px solid black;
+}
+
+.product__item--cover>img {
     height: 100%;
     width: 100%;
 }
-.product__item .item__name, .item__content, .item__footer {
-    padding: 8px 8px;
-}
 
-.product__item .item__name {
-    color: aqua;
-    position: absolute;
-    display: -webkit-box;   
-    bottom: 0;
-    font-weight: 800;
-    -webkit-text-stroke: 2px black;
-    text-transform: uppercase;
-    text-overflow: ellipsis;
+.product__item--cover>div {
+    display: -webkit-box;
+    max-width: 100%;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-    max-width: 100%;
-    max-height: 1.2rem;
+
     overflow: hidden;
-    font-size: 1.2rem;
+    position: absolute;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: xx-large;
+    font-weight: 800;
+    bottom: 2%;
+    left: 5%;
+
+    background: -webkit-linear-gradient(90deg,black 30%, red 50%, white 90%);
+    background-clip: content-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
+.product__item--leftside {
+    width: 20px;
+    left: -5px;
+    height: 100%;
+    -webkit-transform: rotate3d(0, 1, 0, 35deg);
+    -moz-transform: rotate3d(0, 1, 0, 35deg);
+    transform: rotate3d(0, 1, 0, -60deg);
+    border: 2px solid black;
+}
+
+.product__item--leftside>img {
+    height: 100%;
+    width: 100%;
+    border-right: 2px solid black;
+}
+
+/* End Effect 3D Book */
+
 .product__item .item__footer {
+    
+    padding: 8px 8px;   
     display: flex;
     justify-content: space-between;
-    color: #fff;
 }
 
 .product__item .item__footer .item__footer--left {
@@ -90,13 +152,6 @@
     display: flex;
     padding: 0 2px;
     justify-content: space-around;
-}
-
-.product__item .item__footer img {
-    padding-top: 2px;
-    padding-right: 4px;
-    height: 20px;
-    width: 20px;
 }
 
 .material-icons {
@@ -149,4 +204,8 @@
     .products .product__content .product__item {
         height: auto;
     }
+}
+
+.show__all {
+    display: flex;
 }

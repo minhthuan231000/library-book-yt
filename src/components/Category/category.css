@@ -24,14 +24,14 @@
     min-width: 88px;
     font-weight: 500;
     line-height: 48px;
-    border-left: 4px solid green;
-    border-right: 4px solid green;
+    border-left: 4px solid var(--text-title);
+    border-right: 4px solid var(--text-title);
     padding: 0 8px;
     transition: padding 0.3s ease;
 }
 
 .category .category__item:hover {
-    color: green;
+    color: var(--text-title);
     cursor: pointer;
     padding: 0 12px;
 }
@@ -47,7 +47,7 @@
         overflow-y: auto;
     }
     .category .category__item:hover {
-        color: green;
+        color: var(--text-title);
         cursor: pointer;
     }
 }
