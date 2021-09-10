@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 export default function Heading(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [openMember, setOpenMember] = useState(false);
+    // toggle open menu mobile navigation
     const toggle = () => setIsOpen(!isOpen);
     const toggle2 = () => {
         setOpenMember(!openMember);
@@ -27,6 +28,10 @@ export default function Heading(props) {
     useEffect(() => {
         // Nếu scroll sẽ thay đổi màu Heading
         window.addEventListener("scroll", changeColorHeading);
+        const main = document.getElementById('main');
+        main.addEventListener('click', () => {
+            setOpenMember(false)
+        })
     }, []);
 
     /* End handle color and boder of Heading  */
@@ -35,6 +40,7 @@ export default function Heading(props) {
             return (
                 <div className="heading_nav--menu-content">
                     <a className="heading__nav--item" href="/">Trang chủ</a>
+                    <a className="heading__nav--item" href="/">Thành viên</a>
                 </div>
             );
         }
@@ -66,7 +72,7 @@ export default function Heading(props) {
 
                         </div>
                         <div className="heading__nav--right">
-                            <div onClick={() => { props.handleMode(); setColorMoon(!colorMoon)}} style={{ color: colorMoon ? '#333' : '#fff' }} className="heading__nav--mode">
+                            <div onClick={() => { props.handleMode(); setColorMoon(!colorMoon) }} style={{ color: colorMoon ? '#333' : '#fff' }} className="heading__nav--mode">
                                 <FontAwesomeIcon icon={faMoon} />
                             </div>
                             <div className="heading__member" onClick={toggle2} >
@@ -98,10 +104,7 @@ export default function Heading(props) {
                             {openMenuMember()}
                             <div className="heading__search">
                                 <div className="heading__search--input">
-                                    <input type="text" placeholder="Tên sách bạn muốn tìm?..." />
-                                    <span className="material-icons heading__search--icon" >
-                                        search
-                                    </span>
+                                    <input type="search" />
                                 </div>
                             </div>
                         </div>

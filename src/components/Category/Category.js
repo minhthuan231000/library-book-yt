@@ -1,5 +1,5 @@
 import './category.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const listCate = [
     'Truyện Ngắn - Ngôn Tình',
@@ -42,7 +42,7 @@ const listNXS = [
 const listTopics = [
     'Hiện đại', 'Giới trẻ', 'Xã hội', 'Văn hóa', 'Thế giới', 'Gia đình', 'Đạo đức', 'Chính trị'
 ]
-export default function Category() {
+export default function Category(props) {
     function MenuCategory() {
         const list = [];
         for (let i = 0; i < listCate.length; i++) {
@@ -76,15 +76,27 @@ export default function Category() {
         switch (name) {
             case 'cate':
                 setToggleCate(!toggleCate);
+                setToggleAuthor(false);
+                setToggleProducer(false);
+                setToggleTopic(false);
                 break;
             case 'author':
                 setToggleAuthor(!toggleAuthor);
+                setToggleCate(false);
+                setToggleProducer(false);
+                setToggleTopic(false);
                 break;
             case 'producer':
                 setToggleProducer(!toggleProducer);
+                setToggleAuthor(false);
+                setToggleCate(false);
+                setToggleTopic(false);
                 break;
             case 'topic':
                 setToggleTopic(!toggleTopic);
+                setToggleProducer(false);
+                setToggleAuthor(false);
+                setToggleCate(false);
                 break;
             default:
                 break;
@@ -95,12 +107,31 @@ export default function Category() {
     const [toggleProducer, setToggleProducer] = useState(false);
     const [toggleTopic, setToggleTopic] = useState(false);
 
+    function hideToggles() {
+        if (toggleCate) {
+            setToggleCate(false)
+        }
+        if (toggleAuthor) {
+            setToggleAuthor(false)
+        }
+        if (toggleProducer) {
+            setToggleProducer(false)
+        }
+        if (toggleTopic) {
+            setToggleTopic(false)
+        }
+    }
+    useEffect(() => {
+        const main = document.getElementById('main');
+        main.addEventListener('click', hideToggles);
+    })
     function OpenMenuCate() { return toggleCate ? MenuCategory() : ''; }
     function OpenMenuAuthor() { return toggleAuthor ? MenuAuthor() : ''; }
     function OpenMenuProducer() { return toggleProducer ? MenuProducer() : ''; }
     function OpenMenuTopic() { return toggleTopic ? MenuTopic() : ''; }
+
     return (
-        <div className="category">
+        <div className="category" >
             <div className="category_title">Danh mục:</div>
             <div className="category_content">
                 <button className="category__item" name='cate' onClick={handleClickToogle}>

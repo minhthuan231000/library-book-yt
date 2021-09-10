@@ -66,7 +66,7 @@ function App() {
           </Route>
           <Route path="/detail/:type/:id">
             <Banner />
-            <Category />
+            <Category/>
             <DetailProduct />
           </Route>
           <Route path="/user/register">
