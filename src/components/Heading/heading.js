@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './heading.css'
 import Logo from '../../assets/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faUser } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faUser, faMoon } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
-export default function Heading() {
+export default function Heading(props) {
     const [isOpen, setIsOpen] = useState(false);
     const [openMember, setOpenMember] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
@@ -35,9 +35,6 @@ export default function Heading() {
             return (
                 <div className="heading_nav--menu-content">
                     <a className="heading__nav--item" href="/">Trang chủ</a>
-                    <a className="heading__nav--item" href="/Review">Nhận Xét</a>
-                    <a className="heading__nav--item" href="/About">Thông Tin</a>
-                    <a className="heading__nav--item" href="/Contact">Liên Hệ</a>
                 </div>
             );
         }
@@ -46,12 +43,13 @@ export default function Heading() {
         if (openMember) {
             return (
                 <div className="heading__member--menu">
-                    <Link className="heading__member--item" to="/user/register">Đăng Ký</Link>
-                    <Link className="heading__member--item" to="/user/login">Đăng Nhập</Link>
+                    <Link className="heading__member--item" to="/user/register" onClick={toggle2}>Đăng Ký</Link>
+                    <Link className="heading__member--item" to="/user/login" onClick={toggle2}>Đăng Nhập</Link>
                 </div>
             )
         }
     }
+    const [colorMoon, setColorMoon] = useState(false);
     return (
         <header className="heading" style={{ backgroundColor: color, borderBottom: boder }}>
             <div className="heading__top">
@@ -65,11 +63,12 @@ export default function Heading() {
                     <div className="heading__nav--menu-pc">
                         <div className="heading__nav--left">
                             <a className="heading__nav--item" href="/">Trang chủ</a>
-                            <a className="heading__nav--item" href="/Review">Nhận Xét</a>
-                            <a className="heading__nav--item" href="/About">Thông Tin</a>
-                            <a className="heading__nav--item" href="/Contact">Liên Hệ</a>
+
                         </div>
                         <div className="heading__nav--right">
+                            <div onClick={() => { props.handleMode(); setColorMoon(!colorMoon)}} style={{ color: colorMoon ? '#333' : '#fff' }} className="heading__nav--mode">
+                                <FontAwesomeIcon icon={faMoon} />
+                            </div>
                             <div className="heading__member" onClick={toggle2} >
                                 <div className="heading__member--icon">
                                     <FontAwesomeIcon icon={faUser} />
@@ -81,10 +80,7 @@ export default function Heading() {
                             {openMenuMember()}
                             <div className="heading__search">
                                 <div className="heading__search--input">
-                                    <input type="text" placeholder="Tên sách bạn muốn tìm?..." />
-                                    <span className="material-icons heading__search--icon" >
-                                        search
-                                    </span>
+                                    <input type="search" placeholder="Tên sách bạn muốn tìm?..." />
                                 </div>
                             </div>
                         </div>

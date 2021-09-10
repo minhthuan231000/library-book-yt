@@ -1,12 +1,12 @@
 /* eslint-disable no-useless-concat */
-import React, { useState } from 'react';
 import { PropTypes } from 'prop-types';
-import './user.scss'
+import React, { useState } from 'react';
+import './user.scss';
 User.propTypes = {
     formData: PropTypes.array,
 };
 
-function User(props) {
+export default function User(props) {
     const [state, setState] = React.useState(
         {
             username: "",
@@ -128,9 +128,13 @@ function User(props) {
         }
         setColor(!color)
     }
-    const [color, setColor] = useState(true)
+    const [color, setColor] = useState(true);
+    const [mode, setMode] = useState(false);
+    function handleModeClick() {
+        setMode(!mode);
+    }
     return (
-        <div className="information__box">
+        <div className="information__box" style={{ background: mode ? 'white' : 'rgba(0, 0, 0, 0.5)'}}>
             <div className="information__nav">
                 <ul>
                     <li className="tab">
@@ -151,5 +155,3 @@ function User(props) {
         </div>
     );
 }
-
-export default User;

@@ -42,7 +42,7 @@ export default function Product(props) {
                                     {randomVote}
                                 </div>
                                 <div className="comment">
-                                    <span className="material-icons icon__chat--red">
+                                    <span className="material-icons">
                                         chat
                                     </span>
                                     {randomComment}
@@ -87,7 +87,7 @@ export default function Product(props) {
                             {randomVote}
                         </div>
                         <div className="comment">
-                            <span className="material-icons icon__chat--red">
+                            <span className="material-icons">
                                 chat
                             </span>
                             {randomComment}

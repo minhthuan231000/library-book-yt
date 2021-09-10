@@ -106,29 +106,88 @@
 .heading__member .heading__member--icon {
     padding: 0 8px;
 }
-
+.heading__nav--mode:hover{
+    cursor: pointer;
+}
 #main .heading__search .heading__search--input {
+    max-width: 100%;
     align-self: center;
-    border-radius: 5px;
-    width: 100%;
     border: 1px solid #fff;
+    -webkit-border-radius: 10em;
+    -moz-border-radius: 10em;
+    border-radius: 10em;
     display: flex;
 }
 
-.heading__search .heading__search--icon {
-    cursor: pointer;
+/* css input */
+
+input {
+    outline: none;
+}
+
+input[type=search] {
+    box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+input::-webkit-search-decoration, input::-webkit-search-cancel-button {
+    display: none;
+}
+
+input[type=search] {
+    background: transparent url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 4px center;
+    border: none;
+    padding: 4px;
+    -webkit-border-radius: 10em;
+    -moz-border-radius: 10em;
+    border-radius: 10em;
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
+}
+
+input[type=search]:focus {
+    width: 300px;
+    padding-left: 32px;
+    color: var(--text-mode);
+    background-color: #333;
+    cursor: auto;
+}
+
+input[type=search]::placeholder {
+    font-size: 1rem;
+}
+
+input:-moz-placeholder {
+    color: transparent;
+}
+
+input::-webkit-input-placeholder {
+    color: transparent;
+}
+
+input:focus:-moz-placeholder {
     color: var(--text-mode);
 }
 
-.heading__search--input>input {
+input:focus::-webkit-input-placeholder {
     color: var(--text-mode);
-    padding: 4px 8px;
-    width: 100%;
-    height: auto;
-    border: none;
-    background-color: transparent;
-    outline: none;
 }
+
+input[type=search] {
+    width: 15px;
+    padding-left: 10px;
+    color: transparent;
+    cursor: pointer;
+}
+
+input[type=search]:hover {
+    background-color: #333;
+}
+
+/* end css input */
 
 #main .heading__nav--menu-mb {
     display: none;
@@ -140,16 +199,32 @@
     text-decoration: none;
     font-weight: 500;
     line-height: 48px;
-    padding: 0 20px;
+    margin: 0 8px;
+    padding: 8px 20px;
     text-align: center;
     align-self: center;
-    transition: padding 0.3s ease;
+    position: relative;
 }
 
-#main .heading__nav--item:hover {
+#main .heading__nav--item::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: auto;
+    right: 0;
+    width: 0;
+    height: 20%;
+    background-color: var(--text-title);
+    transition: .25s;
+    z-index: -1;
+}
+#main .heading__nav--item:hover{
     color: var(--text-title);
-    border-bottom: 4px solid var(--text-title);
-    padding: 0 32px;
+}
+#main .heading__nav--item:hover::before {
+    width: 100%;
+    left: 0;
+    right: auto;
 }
 
 .heading__nav--brand {
@@ -250,9 +325,6 @@
     }
     #main .heading__search {
         width: 200px;
-    }
-    #main .heading__search--icon{
-        font-size:smaller;
     }
     #main .heading__member {
         font-size: 1rem;

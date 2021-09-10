@@ -1,7 +1,6 @@
 .category {
     background-color: var(--color-heading);
     display: flex;
-    justify-content: space-between;
     padding: 0 10%;
 }
 
@@ -15,36 +14,68 @@
 .category .category_content {
     flex: 1;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-start;
 }
 
 .category .category__item {
-    text-align: center;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    align-self: center;
     color: var(--text-mode);
-    min-width: 88px;
-    font-weight: 500;
+    font-weight: bold;
     line-height: 48px;
-    border-left: 4px solid var(--text-title);
-    border-right: 4px solid var(--text-title);
-    padding: 0 8px;
-    transition: padding 0.3s ease;
+    padding: 0 16px;
+    position: relative;
 }
 
 .category .category__item:hover {
     color: var(--text-title);
     cursor: pointer;
-    padding: 0 12px;
 }
 
+.category .category__item::after {
+    display: block;
+    content: '';
+    border-bottom: solid 4px #019fb6;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+}
+
+.category .category__item:hover:after {
+    transform: scaleX(1);
+}
+.menu__category{
+    display: flex;
+    color: black;
+    text-align: left;
+    position: absolute;
+    width: 500px;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    z-index: 20;
+}
+.menu__category li{
+    width: 40%;
+    padding: 0 16px;
+}
+.menu__category li:hover{
+    background-color: #019fb6;
+}
 /* Iphone 6/7/8 Plus to Ipad */
 
 @media (min-width: 414px) and (max-width: 739px) {
     .category .category_content {
         height: calc(var(--height-heading));
-        flex-direction: column;
-        justify-content: space-between;
-        max-height: 100%;
-        overflow-y: auto;
+        max-width: 100%;
+        justify-content: space-around;
+        overflow-x: auto;
+    }
+    .category .category__item {
+        padding: 0;
     }
     .category .category__item:hover {
         color: var(--text-title);

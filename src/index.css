@@ -26,7 +26,7 @@ body::-webkit-scrollbar-thumb {
   --height-heading: 50px;
   --color-heading: #333;
   --width-body: 1530px;
-  --mode-light: white;
+  --mode-light: #ffff;
   --mode-dark: #1F1F1F;
   --text-mode: #fff;
   --text-title: #03e9f4;

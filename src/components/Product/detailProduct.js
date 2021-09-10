@@ -18,7 +18,7 @@ export default function DetailProduct() {
     const ContentBook = (id) => Books[type].items[id].item_content;
     const startScroll = () => {
         window.scrollTo({
-            top: 855, // Srcll to view Detail Product
+            top: 905, // Srcll to view Detail Product
             behavior: "smooth"
         });
     }

@@ -1,20 +1,39 @@
-a{
+a {
     text-decoration: none;
     color: var(--text-mode);
 }
-a:hover{
+/* CSS USER NAVIGATION */
+.user__nav {
+    background-color: #244c4e;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+}
+.user__nav ul {
+    padding: 0;
+    margin: 0;
+    display: flex;
     color: var(--text-title);
 }
+.user__nav ul li {
+    font-size: 1.6rem;
+}
+.user__nav ul li + li::before {
+    content: "/";
+    cursor: auto;
+    color: var(--text-title);
+    padding: 0 8px;
+}
+/* CSS USER INFORMATION */
 .information__box {
     width: auto;
+    height: auto;
+    min-height: 100vh;
     min-width: calc(var(--width-body) / 4);
-    max-width: calc(var(--width-body) / 2);;
     margin: 0 auto;
     padding: 40px;
-    background: rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
-    border-radius: 10px;
 }
 
 .information__nav ul {

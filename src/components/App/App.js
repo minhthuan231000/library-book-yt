@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import "../../index.css"
 import './app.css'
 import Heading from "../Heading/heading";
@@ -49,10 +50,14 @@ function InfoPage() {
   )
 }
 function App() {
+  const [mode, setMode] = useState(false);
+  function handleMode() {
+    setMode(!mode)
+  }
   return (
-    <div id="main">
+    <div id="main" style={{ backgroundColor: mode ? '#ffff' : '#1F1F1F' }}>
       <Router>
-        <Heading />
+        <Heading handleMode={handleMode} />
         <Switch>
           <Route exact path="/">
             <Banner />
