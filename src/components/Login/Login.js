@@ -2,9 +2,11 @@ import { PropTypes } from 'prop-types';
 import React, { useState } from 'react';
 import './login.css';
 Login.propTypes = {
-    formData: PropTypes.array,
+    onSubmit: PropTypes.func
 };
-
+Login.defaultProps = {
+    onSubmit: null
+}
 function Login(props) {
     const [state, setState] = useState(
         {
@@ -23,14 +25,22 @@ function Login(props) {
     const togglePasswordVisiblity = () => {
         setPasswordShown(passwordShown ? false : true);
     };
-    function saveUpdate() {
-
+    const { onSubmit } = props;
+    function handleSubmit(e) {
+        e.preventDefault();
+        if (!onSubmit) return;
+        const formData = {
+            email: state.email,
+            username: state.username,
+            password: state.password
+        }
+        onSubmit(formData);
     }
     return (
         <div className="login__form">
             <div className="login__box">
                 <h2>Đăng nhập</h2>
-                <form onSubmit={saveUpdate}>
+                <form onSubmit={handleSubmit}>
                     <div className="login__box--content">
                         <div>
                             <div className="user-box">
@@ -42,10 +52,10 @@ function Login(props) {
                                 <label>Tên tài khoản</label>
                             </div>
                             <div className="user-box">
-                                <input 
-                                onClick={togglePasswordVisiblity} 
-                                type={passwordShown ? "text" : "password"} 
-                                name="password" required value={state.password} onChange={handleChange} />
+                                <input
+                                    onClick={togglePasswordVisiblity}
+                                    type={passwordShown ? "text" : "password"}
+                                    name="password" required value={state.password} onChange={handleChange} />
                                 <label>Mật khẩu</label>
                             </div>
                         </div>
@@ -62,12 +72,11 @@ function Login(props) {
                         <span />
                         <span />
                         <span />
-                        <button type="submit">Quên mật khẩu</button>
+                        <button >Quên mật khẩu</button>
                     </div>
                 </form>
             </div>
         </div>
     );
 }
-
 export default Login;

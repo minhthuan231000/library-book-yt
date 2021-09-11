@@ -28,20 +28,7 @@ function HomePage() {
     </div>
   )
 }
-function RegisterPage() {
-  return (
-    <div id="reg__page">
-      <Register />
-    </div>
-  )
-}
-function LoginPage() {
-  return (
-    <div id="reg__page">
-      <Login />
-    </div>
-  )
-}
+
 function InfoPage() {
   return (
     <div id="inf__page">
@@ -49,15 +36,59 @@ function InfoPage() {
     </div>
   )
 }
-function App() {
+
+export default function App() {
   const [mode, setMode] = useState(false);
+  const [logged, setLogged] = useState(false);
   function handleMode() {
     setMode(!mode)
+  }
+  function LoginPage() {
+    // Start range code for login page
+    const user1 = {
+      email: 'thuan123',
+      username: 'thuan123',
+      password: '123'
+    }
+    localStorage.setItem('user', JSON.stringify(user1));
+    const item = localStorage.getItem('user');
+    const checkLogin = JSON.parse(item);
+
+    function onLoginSubmit(formData) {
+      // do something when compoment Login send request submit;
+      if (formData.username === checkLogin.username
+        && formData.password === checkLogin.password
+        && formData.email === checkLogin.email) {
+        // if login success:
+        alert('Đăng nhập thành công');
+        setLogged(true);
+      } else {
+        alert('Đăng nhập thất bại')
+      }
+    }
+    return (
+      <div id="login__page">
+        <Login onSubmit={onLoginSubmit} />
+      </div>
+    )
+    // End range code for login page
+  }
+  function RegisterPage() {
+    // Start range code for reg page
+    function onRegSubmit() {
+      // do something when compoment Register send request submit ;
+    }
+    return (
+      <div id="reg__page">
+        <Register onSubmit={onRegSubmit} />
+      </div>
+    )
+    // End range code for reg page
   }
   return (
     <div id="main" style={{ backgroundColor: mode ? '#ffff' : '#1F1F1F' }}>
       <Router>
-        <Heading handleMode={handleMode} />
+        <Heading handleMode={handleMode} logged={logged} clickLogout={() => setLogged(!logged)} />
         <Switch>
           <Route exact path="/">
             <Banner />
@@ -66,13 +97,13 @@ function App() {
           </Route>
           <Route path="/detail/:type/:id">
             <Banner />
-            <Category/>
+            <Category />
             <DetailProduct />
           </Route>
           <Route path="/user/register">
             <RegisterPage />
           </Route>
-          <Route path="/user/login">
+          <Route path="/user/login" >
             <LoginPage />
           </Route>
           <Route path="/user/info">
@@ -85,4 +116,3 @@ function App() {
   );
 }
 
-export default App;

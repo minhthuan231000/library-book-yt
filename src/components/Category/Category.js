@@ -75,28 +75,16 @@ export default function Category(props) {
         const name = e.target.name;
         switch (name) {
             case 'cate':
-                setToggleCate(!toggleCate);
-                setToggleAuthor(false);
-                setToggleProducer(false);
-                setToggleTopic(false);
+                setToggleCate(true);
                 break;
             case 'author':
-                setToggleAuthor(!toggleAuthor);
-                setToggleCate(false);
-                setToggleProducer(false);
-                setToggleTopic(false);
+                setToggleAuthor(true);
                 break;
             case 'producer':
-                setToggleProducer(!toggleProducer);
-                setToggleAuthor(false);
-                setToggleCate(false);
-                setToggleTopic(false);
+                setToggleProducer(true);
                 break;
             case 'topic':
-                setToggleTopic(!toggleTopic);
-                setToggleProducer(false);
-                setToggleAuthor(false);
-                setToggleCate(false);
+                setToggleTopic(true);
                 break;
             default:
                 break;

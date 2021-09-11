@@ -15,7 +15,7 @@
     padding-top: calc(var(--height-heading) * 3);
     padding-bottom: calc(var(--height-heading) * 2);
 }
-#log__page{
+#login__page{
     padding: calc(var(--height-heading) * 4);
 }
 #inf__page{
